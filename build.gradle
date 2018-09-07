@@ -8,6 +8,10 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.3'
+
+        //Add bintary and maven plugins
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
         
 
         // NOTE: Do not place your application dependencies here; they belong

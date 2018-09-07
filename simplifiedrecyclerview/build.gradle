@@ -1,4 +1,28 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'   //Apply bitray plugin
+apply plugin: 'com.github.dcendents.android-maven' //Apply maven plugin
+
+ext{
+    bintrayRepo = "andronicus-repo"                             //The repository name in Bitray dashboard
+    bintrayName = "io.andronicus.simplifiedrecyclerview"       //Package name of the Bintray Repo
+
+    libraryName = "simplifiedrecyclerview"                    //Module/lib name
+
+    //Artifact information e.g "io.andronicus.simplifiedrecyclerview:simplifiedrecyclerview:1.0.0"
+    publishedGroupId = "io.andronicus.simplifiedrecyclerview" //The ID you want to add in compile/implementation line
+    artifact = "simplifiedrecyclerview"     //The artifact you want to add in compile/implementation line
+    libraryVersion = "1.0.0"
+
+    libraryDescription = 'An android library that simplifies recyclerview set up'
+    siteUrl = 'https://github.com/andronicus-kim/SimplifiedRecyclerview'
+    gitUrl = 'https://github.com/andronicus-kim/SimplifiedRecyclerview.git'
+    developerId = 'andronicus-kim'
+    developerName = 'Andronicus Kim'
+    developerEmail = 'androkim.kim7@gmail.com'
+    licenseName = 'MIT license'
+    licenseUrl = 'https://opensource.org/licenses/MIT'
+    allLicenses = ["MIT license"]
+}
 
 android {
     compileSdkVersion 28
@@ -32,4 +56,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+//Add these lines to publish library to bintray.
+// This is the readymade scripts created by user nuuneoi to make uploading to bintray easy
+if(project.rootProject.file('local.properties').exists()){
+    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
 }
