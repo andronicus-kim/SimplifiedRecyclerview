@@ -19,6 +19,10 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ViewHol
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        /*
+        * I have used a list of strings to simplify this
+        * but your data should go here
+        * */
         List<String> strings = new ArrayList<>();
         strings.add("1");
         strings.add("2");
@@ -32,17 +36,29 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ViewHol
         strings.add("10");
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        /*
+        * Initialize your adapter and pass the required arguments
+        * Make sure to implement MyAdapter.ViewHolderCallbacks<>
+        * */
         MyAdapter adapter = new MyAdapter<>(R.layout.list_item,strings,this);
         recyclerView.setAdapter(adapter);
 
     }
 
+    /*
+    * Bind data to your views as you would normally do
+    * in the view holder
+    * */
     @Override
     public void bindDataToViews(String item, View view) {
         TextView textView = view.findViewById(R.id.tv_test);
         textView.setText(item);
     }
 
+    /*
+    * Handle click events from the view holder here
+    * */
     @Override
     public void onViewHolderClick(String item,int position) {
         Toast.makeText(this, "Clicked at position" +  position, Toast.LENGTH_SHORT).show();
