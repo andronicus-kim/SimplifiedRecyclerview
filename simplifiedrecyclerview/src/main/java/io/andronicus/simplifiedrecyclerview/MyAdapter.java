@@ -7,12 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import java.util.List;
 
-public class Adapter<T> extends RecyclerView.Adapter<Adapter.ViewHolder>{
+public class MyAdapter<T> extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
     private int mLayoutResId;
     private List<T> mData;
     private ViewHolderClicksHandler<T> mHandler;
-    public Adapter(int layoutResId, List<T> data,ViewHolderClicksHandler<T> handler){
+    public MyAdapter(int layoutResId, List<T> data, ViewHolderClicksHandler<T> handler){
      this.mLayoutResId = layoutResId;
      this.mData = data;
      this.mHandler = handler;
@@ -35,17 +35,20 @@ public class Adapter<T> extends RecyclerView.Adapter<Adapter.ViewHolder>{
     }
     public interface ViewHolderClicksHandler<T>{
         void onViewHolderClick(T item);
+        void bindDataToViews(T item,View view);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
+        private View mView;
         public ViewHolder(@NonNull View view) {
             super(view);
             view.setOnClickListener(this);
+            this.mView = view;
         }
 
         private void bind(T item){
-
+            mHandler.bindDataToViews(item,mView);
         }
 
         @Override
