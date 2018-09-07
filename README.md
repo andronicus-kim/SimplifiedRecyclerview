@@ -19,7 +19,7 @@ dependencies {
 }
 ```
 ## Usage
-To be able to initialize MyAdapter, you will need 3 arguments, the layout id of Recyclerview viewholder list item, list of items you are interested in displaying and lastly impementation of ViewHolderCallbacks to handle binding data and view holder click events.
+To be able to initialize MyAdapter, you will need 3 arguments, the layout id of Recyclerview viewholder list item, list of items you are interested in displaying and lastly implementation of ViewHolderCallbacks to handle binding data and view holder click events.
 ```java
     @Override
     protected void onCreate(Bundle savedInstanceState) {
