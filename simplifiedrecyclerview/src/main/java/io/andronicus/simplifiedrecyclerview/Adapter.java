@@ -1,29 +1,24 @@
 package io.andronicus.simplifiedrecyclerview;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import java.util.Collection;
 import java.util.List;
 
 public class Adapter<T> extends RecyclerView.Adapter<Adapter.ViewHolder>{
 
-    private Context mContext;
     private int mLayoutResId;
     private List<T> mData;
-    Adapter(Context context, int layoutResId, List<T> data){
-     this.mContext = context;
+    Adapter(int layoutResId, List<T> data){
      this.mLayoutResId = layoutResId;
      this.mData = data;
     }
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int position) {
-        View view = LayoutInflater.from(mContext).inflate(mLayoutResId,viewGroup,false);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int position) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(mLayoutResId,parent,false);
         return new ViewHolder(view);
     }
 
