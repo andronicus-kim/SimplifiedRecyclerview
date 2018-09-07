@@ -11,10 +11,15 @@ public class MyAdapter<T> extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
     private int mLayoutResId;
     private List<T> mData;
-    private ViewHolderClicksHandler<T> mHandler;
+    private ViewHolderCallbacks<T> mHandler;
     private View mView;
 
-    public MyAdapter(int layoutResId, List<T> data, ViewHolderClicksHandler<T> handler){
+    /*
+    * MyAdapter constructor takes 3 arguments, the id of recycler view holder layout, list of data you
+    * would like to display in your recyclerview and lastly ViewHolderCallbacks which is an interface
+    * to handle binding data and click events
+    * */
+    public MyAdapter(int layoutResId, List<T> data, ViewHolderCallbacks<T> handler){
      this.mLayoutResId = layoutResId;
      this.mData = data;
      this.mHandler = handler;
@@ -29,6 +34,10 @@ public class MyAdapter<T> extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull MyAdapter.ViewHolder holder, int position) {
+        /*
+        * Pass the item at {position} to the calling activity/fragment
+        * in order to bind data from this item to corresponding view holder child views
+        * */
         mHandler.bindDataToViews(mData.get(position),mView);
     }
 
@@ -37,7 +46,11 @@ public class MyAdapter<T> extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         return mData.size();
     }
 
-    public interface ViewHolderClicksHandler<T>{
+    /*
+    * Helper interface to handle binding data to views
+    * as well click events from the view holder
+    * */
+    public interface ViewHolderCallbacks<T>{
         void onViewHolderClick(T item,int position);
         void bindDataToViews(T item,View view);
     }
@@ -51,6 +64,9 @@ public class MyAdapter<T> extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
         @Override
         public void onClick(View view) {
+            /*
+            * Pass the position and the item that was clicked
+            * */
             int position = getAdapterPosition();
             mHandler.onViewHolderClick(mData.get(position),position);
         }

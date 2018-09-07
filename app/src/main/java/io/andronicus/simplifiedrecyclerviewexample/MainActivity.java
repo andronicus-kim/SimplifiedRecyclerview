@@ -13,7 +13,7 @@ import java.util.List;
 
 import io.andronicus.simplifiedrecyclerview.MyAdapter;
 
-public class MainActivity extends AppCompatActivity implements MyAdapter.ViewHolderClicksHandler<String>{
+public class MainActivity extends AppCompatActivity implements MyAdapter.ViewHolderCallbacks<String> {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
