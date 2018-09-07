@@ -32,14 +32,20 @@ public class Adapter<T> extends RecyclerView.Adapter<Adapter.ViewHolder>{
         return mData.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public ViewHolder(@NonNull View view) {
             super(view);
+            view.setOnClickListener(this);
         }
 
         private void bind(T item){
 
+        }
+
+        @Override
+        public void onClick(View view) {
+            T item = mData.get(getAdapterPosition());
         }
     }
 }
