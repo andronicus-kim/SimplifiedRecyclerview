@@ -11,7 +11,7 @@ public class Adapter<T> extends RecyclerView.Adapter<Adapter.ViewHolder>{
 
     private int mLayoutResId;
     private List<T> mData;
-    Adapter(int layoutResId, List<T> data){
+    public Adapter(int layoutResId, List<T> data){
      this.mLayoutResId = layoutResId;
      this.mData = data;
     }
