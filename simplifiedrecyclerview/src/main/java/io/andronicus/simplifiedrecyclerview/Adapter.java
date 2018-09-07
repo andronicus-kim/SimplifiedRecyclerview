@@ -22,14 +22,14 @@ public class Adapter<T> extends RecyclerView.Adapter<Adapter.ViewHolder>{
     }
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int position) {
         View view = LayoutInflater.from(mContext).inflate(mLayoutResId,viewGroup,false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.bind(mData.get(position));
     }
 
     @Override
@@ -41,6 +41,10 @@ public class Adapter<T> extends RecyclerView.Adapter<Adapter.ViewHolder>{
 
         public ViewHolder(@NonNull View view) {
             super(view);
+        }
+
+        private void bind(T item){
+
         }
     }
 }
