@@ -12,6 +12,8 @@ public class MyAdapter<T> extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
     private int mLayoutResId;
     private List<T> mData;
     private ViewHolderClicksHandler<T> mHandler;
+    private View mView;
+
     public MyAdapter(int layoutResId, List<T> data, ViewHolderClicksHandler<T> handler){
      this.mLayoutResId = layoutResId;
      this.mData = data;
@@ -19,41 +21,38 @@ public class MyAdapter<T> extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
     }
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int position) {
+    public MyAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int position) {
         View view = LayoutInflater.from(parent.getContext()).inflate(mLayoutResId,parent,false);
+        mView = view;
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.bind(mData.get(position));
+    public void onBindViewHolder(@NonNull MyAdapter.ViewHolder holder, int position) {
+        mHandler.bindDataToViews(mData.get(position),mView);
     }
 
     @Override
     public int getItemCount() {
         return mData.size();
     }
+
     public interface ViewHolderClicksHandler<T>{
-        void onViewHolderClick(T item);
+        void onViewHolderClick(T item,int position);
         void bindDataToViews(T item,View view);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        private View mView;
-        public ViewHolder(@NonNull View view) {
+        private ViewHolder(@NonNull View view) {
             super(view);
             view.setOnClickListener(this);
-            this.mView = view;
-        }
-
-        private void bind(T item){
-            mHandler.bindDataToViews(item,mView);
         }
 
         @Override
         public void onClick(View view) {
-            mHandler.onViewHolderClick(mData.get(getAdapterPosition()));
+            int position = getAdapterPosition();
+            mHandler.onViewHolderClick(mData.get(position),position);
         }
     }
 }
