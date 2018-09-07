@@ -11,9 +11,11 @@ public class Adapter<T> extends RecyclerView.Adapter<Adapter.ViewHolder>{
 
     private int mLayoutResId;
     private List<T> mData;
-    public Adapter(int layoutResId, List<T> data){
+    private ViewHolderClicksHandler<T> mHandler;
+    public Adapter(int layoutResId, List<T> data,ViewHolderClicksHandler<T> handler){
      this.mLayoutResId = layoutResId;
      this.mData = data;
+     this.mHandler = handler;
     }
     @NonNull
     @Override
@@ -31,6 +33,9 @@ public class Adapter<T> extends RecyclerView.Adapter<Adapter.ViewHolder>{
     public int getItemCount() {
         return mData.size();
     }
+    public interface ViewHolderClicksHandler<T>{
+        void onViewHolderClick(T item);
+    }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
@@ -45,7 +50,7 @@ public class Adapter<T> extends RecyclerView.Adapter<Adapter.ViewHolder>{
 
         @Override
         public void onClick(View view) {
-            T item = mData.get(getAdapterPosition());
+            mHandler.onViewHolderClick(mData.get(getAdapterPosition()));
         }
     }
 }
