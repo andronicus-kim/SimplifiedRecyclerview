@@ -1,16 +1,30 @@
 package io.andronicus.simplifiedrecyclerview;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
+import java.util.Collection;
+import java.util.List;
 
+public class Adapter<T> extends RecyclerView.Adapter<Adapter.ViewHolder>{
+
+    private Context mContext;
+    private int mLayoutResId;
+    private List<T> mData;
+    Adapter(Context context, int layoutResId, List<T> data){
+     this.mContext = context;
+     this.mLayoutResId = layoutResId;
+     this.mData = data;
+    }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return null;
+        View view = LayoutInflater.from(mContext).inflate(mLayoutResId,viewGroup,false);
+        return new ViewHolder(view);
     }
 
     @Override
@@ -20,7 +34,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mData.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
