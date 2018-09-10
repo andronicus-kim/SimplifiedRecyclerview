@@ -7,13 +7,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import io.andronicus.simplifiedrecyclerview.MyAdapter;
 
-public class MainActivity extends AppCompatActivity implements MyAdapter.ViewHolderCallbacks<String> {
+public class MainActivity extends AppCompatActivity implements MyAdapter.ViewHolderCallbacks<String>{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
