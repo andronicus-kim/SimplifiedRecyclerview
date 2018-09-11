@@ -1,5 +1,5 @@
 # SimplifiedRecyclerview
-An android library to help you get rid of all boiler plate when setting up Recyclerview
+An android library to help you get rid of boiler plate code when setting up Recyclerview
 
 ## Download
 You can grab SimplifiedRecyclerview via Maven:
