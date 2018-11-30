@@ -1,5 +1,5 @@
 # SimplifiedRecyclerview  
-[ ![Download](https://api.bintray.com/packages/andronicus-kim/andronicus-repo/io.andronicus.simplifiedrecyclerview/images/download.svg?version=1.0.1) ](https://bintray.com/andronicus-kim/andronicus-repo/io.andronicus.simplifiedrecyclerview/1.0.1/link)
+[ ![Download](https://api.bintray.com/packages/andronicus-kim/andronicus-repo/io.andronicus.simplifiedrecyclerview/images/download.svg?version=1.0.2) ](https://bintray.com/andronicus-kim/andronicus-repo/io.andronicus.simplifiedrecyclerview/1.0.2/link)
 
 An android library to help you get rid of boiler plate code when setting up Recyclerview
 
@@ -9,7 +9,7 @@ You can grab SimplifiedRecyclerview via Maven:
 <dependency>
   <groupId>io.andronicus.simplifiedrecyclerview</groupId>
   <artifactId>simplifiedrecyclerview</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <type>pom</type>
 </dependency>
 ```
@@ -17,7 +17,7 @@ or Gradle:
 
 ```gradle
 dependencies {
-  implementation 'io.andronicus.simplifiedrecyclerview:simplifiedrecyclerview:1.0.1'
+  implementation 'io.andronicus.simplifiedrecyclerview:simplifiedrecyclerview:1.0.2'
 }
 ```
 ## Usage
@@ -94,6 +94,13 @@ The first method bindDataToViews allows you to bind data to views inside ViewHol
      * */
     private String getOneItem(int position){
         return mAdapter.getItemAtPosition(position);
+    }
+    
+     /*
+     * Refresh or Update data
+     * */
+    private void setData(List<T> data){
+        this.mData = data;
     }
 }
 ```
