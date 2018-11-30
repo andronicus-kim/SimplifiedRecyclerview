@@ -46,6 +46,10 @@ public class MyAdapter<T> extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         return mData.size();
     }
 
+    public void setData(List<T> data) {
+        this.mData = data;
+    }
+
     /*
     * Get one item from the Adapter
     * */
