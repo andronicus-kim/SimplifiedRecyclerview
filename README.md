@@ -1,4 +1,6 @@
-# SimplifiedRecyclerview
+# SimplifiedRecyclerview  
+[ ![Download](https://api.bintray.com/packages/andronicus-kim/andronicus-repo/io.andronicus.simplifiedrecyclerview/images/download.svg?version=1.0.1) ](https://bintray.com/andronicus-kim/andronicus-repo/io.andronicus.simplifiedrecyclerview/1.0.1/link)
+
 An android library to help you get rid of boiler plate code when setting up Recyclerview
 
 ## Download
@@ -7,7 +9,7 @@ You can grab SimplifiedRecyclerview via Maven:
 <dependency>
   <groupId>io.andronicus.simplifiedrecyclerview</groupId>
   <artifactId>simplifiedrecyclerview</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <type>pom</type>
 </dependency>
 ```
@@ -15,7 +17,7 @@ or Gradle:
 
 ```gradle
 dependencies {
-  implementation 'io.andronicus.simplifiedrecyclerview:simplifiedrecyclerview:1.0.0'
+  implementation 'io.andronicus.simplifiedrecyclerview:simplifiedrecyclerview:1.0.1'
 }
 ```
 ## Usage
@@ -56,7 +58,7 @@ The first method bindDataToViews allows you to bind data to views inside ViewHol
         MyAdapter adapter = new MyAdapter<>(R.layout.list_item,strings,this);
         recyclerView.setAdapter(adapter);
     }
-
+    
     /*
     * Bind data to your views as you would normally do
     * in the view holder
@@ -73,6 +75,25 @@ The first method bindDataToViews allows you to bind data to views inside ViewHol
     @Override
     public void onViewHolderClick(String item,int position) {
         Toast.makeText(this, "Clicked at position" +  position, Toast.LENGTH_SHORT).show();
+    }
+    
+    /*
+    * Optionally you can turn your adapter to a field in
+    * this case mAdapter and use it to get all or get one item
+    * as illustrated below
+    * */
+    /*
+    * Get all items from the Adapter
+    * */
+    private List<String> getAllItems(){
+        return mAdapter.getAllItems();
+    }
+
+    /*
+     * Get one item from the Adapter
+     * */
+    private String getOneItem(int position){
+        return mAdapter.getItemAtPosition(position);
     }
 }
 ```
