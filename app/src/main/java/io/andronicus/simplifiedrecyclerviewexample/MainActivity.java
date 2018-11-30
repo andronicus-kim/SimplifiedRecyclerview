@@ -71,6 +71,13 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ViewHol
     * Bind data to your views as you would normally do
     * in the view holder
     * */
+
+    /*
+     * Refresh or Update data
+     * */
+    private void setData(List<String> data){
+        this.mAdapter.setData(data);
+    }
     @Override
     public void bindDataToViews(String item, View view) {
         TextView textView = view.findViewById(R.id.tv_test);
