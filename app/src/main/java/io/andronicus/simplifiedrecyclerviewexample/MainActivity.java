@@ -50,6 +50,11 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ViewHol
     }
 
     /*
+    * Optionally you can turn your adapter to a field in
+    * this case mAdapter and use it to get all or get one item
+    * as illustrated below
+    * */
+    /*
     * Get all items from the Adapter
     * */
     private List<String> getAllItems(){
