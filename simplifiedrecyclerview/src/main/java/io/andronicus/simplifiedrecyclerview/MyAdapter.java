@@ -48,6 +48,7 @@ public class MyAdapter<T> extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
     public void setData(List<T> data) {
         this.mData = data;
+        notifyDataSetChanged();
     }
 
     /*
