@@ -47,6 +47,17 @@ public class MyAdapter<T> extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
     }
 
     /*
+    * Get one item from the Adapter
+    * */
+    public T getItemAtPosition(int position){
+        return this.mData.get(position);
+    }
+
+    public List<T> getAllItems(){
+        return this.mData;
+    }
+
+    /*
     * Helper interface to handle binding data to views
     * as well click events from the view holder
     * */

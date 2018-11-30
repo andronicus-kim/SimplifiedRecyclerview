@@ -12,7 +12,10 @@ import java.util.List;
 
 import io.andronicus.simplifiedrecyclerview.MyAdapter;
 
+
 public class MainActivity extends AppCompatActivity implements MyAdapter.ViewHolderCallbacks<String>{
+
+    private MyAdapter<String> mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +43,25 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ViewHol
         * Initialize your adapter and pass the required arguments
         * Make sure to implement MyAdapter.ViewHolderCallbacks<>
         * */
-        MyAdapter adapter = new MyAdapter<>(R.layout.list_item,strings,this);
-        recyclerView.setAdapter(adapter);
+        mAdapter = new MyAdapter<>(R.layout.list_item,strings,this);
+        recyclerView.setAdapter(mAdapter);
+
 
     }
 
+    /*
+    * Get all items from the Adapter
+    * */
+    private List<String> getAllItems(){
+        return mAdapter.getAllItems();
+    }
+
+    /*
+     * Get one item from the Adapter
+     * */
+    private String getOneItem(int position){
+        return mAdapter.getItemAtPosition(position);
+    }
     /*
     * Bind data to your views as you would normally do
     * in the view holder
