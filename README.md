@@ -96,11 +96,11 @@ The first method bindDataToViews allows you to bind data to views inside ViewHol
         return mAdapter.getItemAtPosition(position);
     }
     
-     /*
+    /*
      * Refresh or Update data
      * */
-    private void setData(List<T> data){
-        this.mData = data;
+    private void setData(List<String> data){
+        this.mAdapter.setData(data);
     }
 }
 ```
