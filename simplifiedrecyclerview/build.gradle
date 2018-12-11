@@ -11,7 +11,7 @@ ext{
     //Artifact information e.g "io.andronicus.simplifiedrecyclerview:simplifiedrecyclerview:1.0.0"
     publishedGroupId = "io.andronicus.simplifiedrecyclerview" //The ID you want to add in compile/implementation line
     artifact = "simplifiedrecyclerview"     //The artifact you want to add in compile/implementation line
-    libraryVersion = "1.0.3"
+    libraryVersion = "1.0.4"
 
     libraryDescription = 'An android library that simplifies recyclerview set up'
     siteUrl = 'https://github.com/andronicus-kim/SimplifiedRecyclerview'
