@@ -1,5 +1,5 @@
 # SimplifiedRecyclerview  
-[ ![Download](https://api.bintray.com/packages/andronicus-kim/andronicus-repo/io.andronicus.simplifiedrecyclerview/images/download.svg?version=1.0.3) ](https://bintray.com/andronicus-kim/andronicus-repo/io.andronicus.simplifiedrecyclerview/1.0.3/link)
+[ ![Download](https://api.bintray.com/packages/andronicus-kim/andronicus-repo/io.andronicus.simplifiedrecyclerview/images/download.svg?version=1.0.4) ](https://bintray.com/andronicus-kim/andronicus-repo/io.andronicus.simplifiedrecyclerview/1.0.4/link)
 
 An android library to help you get rid of boiler plate code when setting up Recyclerview
 
@@ -9,7 +9,7 @@ You can grab SimplifiedRecyclerview via Maven:
 <dependency>
   <groupId>io.andronicus.simplifiedrecyclerview</groupId>
   <artifactId>simplifiedrecyclerview</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
   <type>pom</type>
 </dependency>
 ```
@@ -17,7 +17,7 @@ or Gradle:
 
 ```gradle
 dependencies {
-  implementation 'io.andronicus.simplifiedrecyclerview:simplifiedrecyclerview:1.0.3'
+  implementation 'io.andronicus.simplifiedrecyclerview:simplifiedrecyclerview:1.0.4'
 }
 ```
 ## Usage
