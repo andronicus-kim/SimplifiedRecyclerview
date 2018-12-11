@@ -68,14 +68,16 @@ public class MyAdapter<T> extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
     * */
     public interface ViewHolderCallbacks<T>{
         void onViewHolderClick(T item,int position);
+        void onViewHolderLongClick(T item, int position);
         void bindDataToViews(T item,View view);
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
 
         private ViewHolder(@NonNull View view) {
             super(view);
             view.setOnClickListener(this);
+            view.setOnLongClickListener(this);
         }
 
         @Override
@@ -85,6 +87,16 @@ public class MyAdapter<T> extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
             * */
             int position = getAdapterPosition();
             mHandler.onViewHolderClick(mData.get(position),position);
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            /*
+             * Pass the position and the item that was long clicked
+             * */
+            int position = getAdapterPosition();
+            mHandler.onViewHolderLongClick(mData.get(position), position);
+            return true;
         }
     }
 }
