@@ -91,4 +91,9 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ViewHol
     public void onViewHolderClick(String item,int position) {
         Toast.makeText(this, "Clicked at position" +  position, Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void onViewHolderLongClick(String item, int position) {
+        Toast.makeText(this, "Long clicked item at position: " + position , Toast.LENGTH_SHORT).show();
+    }
 }
